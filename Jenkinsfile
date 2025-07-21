@@ -4,7 +4,7 @@ pipeline {
         stage('Tests') {
             steps {
                 script {
-                    docker.image('python:3.11').inside {
+                    docker.image('python:3.12').inside {
                         checkout scm
                         sh 'python3 -m pip install pytest'
                         sh 'python3 -m pytest . --junit-xml=report.xml'
