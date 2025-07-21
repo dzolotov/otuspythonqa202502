@@ -1,11 +1,12 @@
 pipeline {
-    agent {
-        docker {
-             image 'python:3.11'
-        }
-    }
+    agent any
     stages {
         stage('Tests') {
+            agent {
+                docker {
+                    image 'python:3.11'
+                }
+            }
             steps {
                 checkout scm
                 sh 'python3 -m pip install pytest'
